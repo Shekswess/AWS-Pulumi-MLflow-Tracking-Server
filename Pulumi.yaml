@@ -1,0 +1,10 @@
+name: MLFlow-Tracking-Server
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: An AWS Python Pulumi Stack for MLFlow Tracking Server
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: ""
