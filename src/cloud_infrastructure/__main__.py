@@ -108,7 +108,7 @@ if __name__ == "__main__":
 
     key_name = "mlflow-key"
     ec2_name = "mlflow-ec2"
-    ami = "ami-0e5f882be1900e43b"
+    ami = "(the ami that depends on the region)"
     instance_type = "t2.micro"
     server = create_ec2_instance(
         ec2_name,
@@ -153,7 +153,7 @@ if __name__ == "__main__":
     rds_name = "metadata-rds-mlflow"
     db_name = "mlflow"
     username = "mlflowadmin"
-    password = "Mlfl0wPassw0rd!"
+    password = "Mlflowpassword123!"
     rds_instance = create_rds_instance(
         rds_name,
         db_name,

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - develop
 jobs:
   deploy_cloud_infrastructure:
     name: Deploying Cloud Infrastructure Stack
@@ -19,16 +18,18 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-            aws-access-key-id: ${{ secrets.ADMIN_ACCESS_KEY }}
-            aws-secret-access-key: ${{ secrets.ADMIN_SECRET_KEY }}
-            aws-region: ${{ secrets.REGION }}
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Install Python Dependencies
         run: pip install -r requirements.txt
+        working-directory: ./src/cloud_infrastructure/
         
       - uses: pulumi/actions@v3
         with:
           command: up
-          stack-name: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+          stack-name: production
+          work-dir: ./src/cloud_infrastructure/
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
