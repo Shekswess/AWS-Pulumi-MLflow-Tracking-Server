@@ -4,6 +4,8 @@ This is a README.md file for the the AWS Pulumi Stack for the creating MLflow Re
 
 This code repository has all the code needed to create the AWS Pulumi Stack for the MLflow Remote Tracking Server and examples of how to use it.
 
+Blogpost: https://mlops.community/mlflow-on-aws-with-pulumi-a-step-by-step-guide/
+
 ## Prerequisites
 - Install [Pulumi](https://www.pulumi.com/docs/get-started/install/)
 - Install [Python](https://www.python.org/downloads/)
